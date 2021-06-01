@@ -26,7 +26,7 @@ import org.scalatest.flatspec.AsyncFlatSpec
 class SttpBackendTests extends AsyncFlatSpec {
   "A Slack client" should "able to try to connect using a async http client network sttp backend" in {
     import cats.instances.future._
-    import sttp.client.asynchttpclient.future.AsyncHttpClientFutureBackend
+    import sttp.client3.asynchttpclient.future.AsyncHttpClientFutureBackend
 
     implicit val sttpBackend = AsyncHttpClientFutureBackend()
 
@@ -51,7 +51,7 @@ class SttpBackendTests extends AsyncFlatSpec {
 
   it should "able to try to connect using a async http cats effect network sttp backend" in {
     import cats.effect._
-    import sttp.client.asynchttpclient.cats.AsyncHttpClientCatsBackend
+    import sttp.client3.asynchttpclient.cats.AsyncHttpClientCatsBackend
     implicit val cs: ContextShift[IO] = IO.contextShift( scala.concurrent.ExecutionContext.global )
 
     val testApiUserToken =
@@ -75,7 +75,7 @@ class SttpBackendTests extends AsyncFlatSpec {
   it should "able to try to connect using a async http cats effect network sttp backend with a throttler" in {
     import cats.effect._
 
-    import sttp.client.asynchttpclient.cats.AsyncHttpClientCatsBackend
+    import sttp.client3.asynchttpclient.cats.AsyncHttpClientCatsBackend
     implicit val cs: ContextShift[IO] = IO.contextShift( scala.concurrent.ExecutionContext.global )
 
     implicit val testApiUserToken =
@@ -101,7 +101,7 @@ class SttpBackendTests extends AsyncFlatSpec {
   }
 
   it should "able to try to connect using the monix effect sttp backend" in {
-    import sttp.client.asynchttpclient.monix.AsyncHttpClientMonixBackend
+    import sttp.client3.asynchttpclient.monix.AsyncHttpClientMonixBackend
     import monix.eval._
     import monix.execution.Scheduler.Implicits.global
 
@@ -125,7 +125,7 @@ class SttpBackendTests extends AsyncFlatSpec {
   it should "able to try to connect using the http4s sttp backend" in {
     import cats.effect._
     import org.http4s.client.blaze.BlazeClientBuilder
-    import sttp.client.http4s.Http4sBackend
+    import sttp.client3.http4s.Http4sBackend
     import org.http4s.client.Client
 
     implicit val cs: ContextShift[IO] = IO.contextShift( scala.concurrent.ExecutionContext.global )

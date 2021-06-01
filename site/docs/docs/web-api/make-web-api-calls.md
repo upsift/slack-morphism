@@ -40,7 +40,7 @@ import org.latestbit.slack.morphism.client._
 
 // Import STTP backend
 // We're using Akka Http for this example 
-import sttp.client.akkahttp.AkkaHttpBackend
+import sttp.client3.akkahttp.AkkaHttpBackend
 
 // Import support for scala.concurrent.Future implicits from cats (required if you use Future-based backend)
 // If you bump into compilation errors that `Future` isn't a `cats.Monad` or `cats.MonadError`, 
@@ -63,7 +63,7 @@ import org.latestbit.slack.morphism.client._
 
 // Import STTP backend
 // We're using AsyncHttpClientCatsBackend for this example 
-import sttp.client.asynchttpclient.cats.AsyncHttpClientCatsBackend
+import sttp.client3.asynchttpclient.cats.AsyncHttpClientCatsBackend
 
 // Import support for cats-effect
 import cats.effect._
@@ -86,7 +86,7 @@ for {
 import org.latestbit.slack.morphism.client._
 
 // Import STTP backend
-import sttp.client.asynchttpclient.monix.AsyncHttpClientMonixBackend
+import sttp.client3.asynchttpclient.monix.AsyncHttpClientMonixBackend
 
 
 // Monix imports 
@@ -123,7 +123,7 @@ import org.latestbit.slack.morphism.client._
 import org.latestbit.slack.morphism.common._
 import org.latestbit.slack.morphism.client.reqresp.chat._
 
-import sttp.client.akkahttp.AkkaHttpBackend
+import sttp.client3.akkahttp.AkkaHttpBackend
 import scala.concurrent._
 import cats.instances.future._
 

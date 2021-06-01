@@ -11,7 +11,7 @@ import org.latestbit.slack.morphism.client.SlackApiClient
 import org.latestbit.slack.morphism.examples.http4s.config.AppConfig
 import org.latestbit.slack.morphism.examples.http4s.db.SlackTokensDb
 import org.latestbit.slack.morphism.examples.http4s.routes._
-import sttp.client.http4s.Http4sBackend
+import sttp.client3.http4s.Http4sBackend
 
 import scala.concurrent.ExecutionContext.global
 
